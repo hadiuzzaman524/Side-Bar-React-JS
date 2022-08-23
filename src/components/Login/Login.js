@@ -12,7 +12,7 @@ const Login = (props) => {
   const [formIsValid, setFormIsValid] = useState(false);
 
   useEffect(() => {
-
+    /// this is call after 500ms when stop sideEffect or changing variable
    const timer= setTimeout(()=> {
       console.log("Call timeout function");
       setFormIsValid(
@@ -21,7 +21,8 @@ const Login = (props) => {
     }, 
     500);
 
-    return (()=> {
+    // this function is call by every sideEffect changing 
+    return (()=> { // this is CleanUp function look like flutter dispose 
       clearTimeout(timer);
       console.log("Cancle");
     });
