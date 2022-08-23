@@ -12,10 +12,21 @@ const Login = (props) => {
   const [formIsValid, setFormIsValid] = useState(false);
 
   useEffect(() => {
-    setFormIsValid(
-      enteredEmail.includes("@") && enteredPassword.trim().length > 6
-    );
-  }, [enteredEmail, enteredPassword]);
+
+   const timer= setTimeout(()=> {
+      console.log("Call timeout function");
+      setFormIsValid(
+        enteredEmail.includes("@") && enteredPassword.trim().length > 6
+      );
+    }, 
+    500);
+
+    return (()=> {
+      clearTimeout(timer);
+      console.log("Cancle");
+    });
+   
+  }, [enteredEmail, enteredPassword]); /// this function is call everytime when enteredEmail && enteredPassword is changed
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
