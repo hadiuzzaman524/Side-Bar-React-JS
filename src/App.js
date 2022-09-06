@@ -1,11 +1,16 @@
-
-import Header from './UI/Header'
+import Header from "./UI/Header";
+import Meals from './Meals/Meals';
+import Cart from "./UI/Cart";
 
 function App() {
   return (
-    <Header>
-     
-    </Header>
+    <>
+    <Cart/>
+      <Header/>
+      <main>
+      <Meals></Meals>
+      </main>
+    </>
   );
 }
 

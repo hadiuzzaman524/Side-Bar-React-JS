@@ -1,0 +1,38 @@
+.meal{
+   margin: auto;
+    background-color: crimson;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 10px;
+    width: 70%;
+    max-width: 90%;
+    animation: meals-appear 1s ease-out;
+}
+
+
+.meal span{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.meal span button{
+    border-radius: 15px;
+    border: none;
+    padding: 0 30px;
+    background-color: coral;
+    color: white;
+    font-weight: bold;
+}
+
+@keyframes meals-appear {
+    from {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
