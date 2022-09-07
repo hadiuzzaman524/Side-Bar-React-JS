@@ -10,14 +10,14 @@ const Cart = (props) => {
     </ul>
   );
   return (
-    <Model>
+    <Model closeCart={props.closeCart}>
       {cartItems}
       <div>
         <span>Total amount</span>
         <span>45.43</span>
       </div>
       <div>
-        <button>Close</button>
+        <button onClick={props.closeCart}>Close</button>
         <button>Order</button>
       </div>
     </Model>
