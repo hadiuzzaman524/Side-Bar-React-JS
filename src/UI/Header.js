@@ -2,7 +2,13 @@ import React from "react";
 
 import classes from './Header.module.css';
 import mealsImage from '../Assets/meals.jpg'
+
+import { useContext } from "react";
+import CartContext from "../Store/CartContext";
 const Headers = (props) => {
+
+    const ctx= useContext(CartContext); 
+    
     return(
         <>
         <header className={classes.header}> 

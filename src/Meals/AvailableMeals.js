@@ -1,6 +1,8 @@
 import React from "react";
 
-import classes from './AvailableMeals.module.css';
+import classes from "./AvailableMeals.module.css";
+import { useContext } from "react";
+import CartContext from "../Store/CartContext";
 
 const DUMMY_MEALS = [
   {
@@ -30,18 +32,29 @@ const DUMMY_MEALS = [
 ];
 
 const AvailableMeals = () => {
+  const ctx = useContext(CartContext);
+
+  const addItem = () => {
+    console.log("Click");
+    ctx.addItem({
+      id: "m4",
+      name: "Green Bowl",
+      description: "Healthy...and green...",
+      price: 18.99,
+    });
+  };
+
   const mealList = DUMMY_MEALS.map((meal) => (
-      <section className={classes.meal}>
-        <span>
-            <h2>{meal.name}</h2>
-            <h1>{meal.price}</h1>
-        </span>
-        <span><p>{meal.description}</p>
-        <button>Add to Cart</button>
-        </span>
-        
-        
-      </section>
+    <section className={classes.meal}>
+      <span>
+        <h2>{meal.name}</h2>
+        <h1>{meal.price}</h1>
+      </span>
+      <span>
+        <p>{meal.description}</p>
+        <button onClick={addItem}>Add to Cart</button>
+      </span>
+    </section>
   ));
 
   return <ul>{mealList}</ul>;
