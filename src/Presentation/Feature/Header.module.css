@@ -1,0 +1,22 @@
+.header{
+    background-color: blueviolet;
+    color: white;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+}
+.header button{
+    margin-right: 50px;
+    background-color: cornsilk;
+    color: black;
+    border-radius: 20px;
+    border: 2px solid rebeccapurple;
+    padding: 10px;
+    height: 40px;
+    font-weight: bold;
+}
+
