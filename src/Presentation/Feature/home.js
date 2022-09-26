@@ -5,10 +5,8 @@ import Style from "./Home.module.css";
 import Model from "./Modal";
 import AddItem from "./AddItem";
 import { useState } from "react";
-import ItemContext, { ItemContextProvider } from "../Store/ItemContext";
-import { useContext } from "react";
 import HomeBody from "./HomeBody";
-
+import ItemContextProvider from "../../Store/ContextProvider";
 
 
 const HomePage = () => {

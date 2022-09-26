@@ -1,16 +1,15 @@
 
 import Model from "./Modal";
 import Style from "./AddItem.module.css";
-import ItemContext from "../Store/ItemContext";
 import { useContext } from "react";
 import { useState } from "react";
 
 const AddItem = (props) => {
-    const ctx = useContext(ItemContext);
+  
     const [title, setTitle] = useState("");
 
     const onClick = () => {
-        ctx.addItem({id: "c1", title: title});
+       // ctx.addItem({id: "c1", title: title});
     }
 
     const onChange = (value) => {

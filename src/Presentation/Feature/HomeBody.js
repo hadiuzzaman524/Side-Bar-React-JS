@@ -1,20 +1,23 @@
 import Style from "./Home.module.css";
-import { useContext } from "react";
 import CardItem from "./CardItem";
-import ItemContext, { ItemContextProvider } from "../Store/ItemContext";
+import { useContext } from "react";
+import ItemContext from "../../Store/ItemContext";
 
+const HomeBody = () => {
 
-const HomeBody = ()=>{
     const ctx = useContext(ItemContext);
+    console.log(ctx.items);
+    console.log(ctx.name);
+
     return (
         <div className={Style.home}>
-        <div className={Style.main_container}>
-        {ctx.items?.map((item) => <CardItem title={item.title}></CardItem>)}
+            <div className={Style.main_container}>
+                {ctx.items.map((item)=>  <CardItem title={item.title}></CardItem>)}
+            </div>
         </div>
-    </div>
     );
 }
-export default HomeBody; 
+export default HomeBody;
 /*
   {ctx.items.map((item) => <CardItem title={item.title}></CardItem>)}
   */
