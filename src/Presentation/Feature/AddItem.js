@@ -3,13 +3,17 @@ import Model from "./Modal";
 import Style from "./AddItem.module.css";
 import { useContext } from "react";
 import { useState } from "react";
+import ItemContext from "../../Store/ItemContext";
 
 const AddItem = (props) => {
+
   
     const [title, setTitle] = useState("");
+    const ctx= useContext(ItemContext);
 
     const onClick = () => {
-       // ctx.addItem({id: "c1", title: title});
+        ctx.addItem({id: Date(), title: title});
+        {props.onCancel()};
     }
 
     const onChange = (value) => {
@@ -24,7 +28,7 @@ const AddItem = (props) => {
                 <label>Enter Title</label>
                 <input type="text" onChange={onChange}></input>
                 <div className={Style.button}>
-                    <button onClick={onClick}>Add Item</button>
+                    <button onClick={onClick} >Add Item</button>
                     <button onClick={props.onSubmit}>Cancel</button>
                 </div>
 

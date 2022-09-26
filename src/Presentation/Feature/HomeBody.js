@@ -4,15 +4,12 @@ import { useContext } from "react";
 import ItemContext from "../../Store/ItemContext";
 
 const HomeBody = () => {
-
     const ctx = useContext(ItemContext);
-    console.log(ctx.items);
-    console.log(ctx.name);
 
     return (
         <div className={Style.home}>
             <div className={Style.main_container}>
-                {ctx.items.map((item)=>  <CardItem title={item.title}></CardItem>)}
+                {ctx.items.length< 1 ? <h3>Empty ToDo</h3>:ctx.items.map((item)=>  <CardItem title={item.title} key={Date()} id={item.id}></CardItem>)}
             </div>
         </div>
     );
