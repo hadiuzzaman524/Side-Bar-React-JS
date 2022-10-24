@@ -1,5 +1,5 @@
 import { keyboard } from "@testing-library/user-event/dist/keyboard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Style from "./MovieList.module.css";
 
 
@@ -11,6 +11,7 @@ const MovieList = () => {
 
     async function fetchData() {
         setLoading(true);
+        try{
         const response = await fetch("https://swapi.dev/api/films/");
         const data = await response.json();
         console.log("Loading....");
@@ -34,7 +35,15 @@ const MovieList = () => {
         }
         setLoading(false);
         console.log("Loaded");
+    }catch (error){
+        console.log(error);
     }
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return <div className={Style.main_container}>
         <button className={Style.button} onClick={fetchData}>Fetch Movies</button>
         {isLoading && <p>Loading....</p>}
