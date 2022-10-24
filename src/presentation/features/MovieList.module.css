@@ -1,0 +1,31 @@
+.main_container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.button {
+    height: 50px;
+    width: 50%;
+    background-color: coral;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 15px;
+}
+
+.movie_card {
+    height: 250px;
+    width: 50%;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+  padding: 20px;
+    align-items: center;
+}
