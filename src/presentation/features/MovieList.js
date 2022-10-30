@@ -5,7 +5,7 @@ import Style from "./MovieList.module.css";
 import app from "./FirebaseConfiguration";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 
 //https://react-http-8edde-default-rtdb.firebaseio.com/
 const db = getFirestore(app);
@@ -17,21 +17,34 @@ const MovieList = () => {
   const [addMovieLoading, setMovieLoading] = useState(false);
 
   async function fetchData() {
+    setLoading(true);
     const querySnapshot = await getDocs(collection(db, "movies"));
     const newMovieList = [];
     querySnapshot.forEach((doc) => {
-      // console.log(`${doc.id} => ${doc.data()}`);
       newMovieList.push(doc.data());
     });
     setMovies(newMovieList);
     console.log(MovieList);
+    setLoading(false);
   }
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  async function addMovieInfo(title, description) {}
+  async function addMovieInfo(title, description) {
+    setMovieLoading(true);
+    try {
+      const docRef = await addDoc(collection(db, "movies"), {
+        name: title,
+        description: description,
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+    setMovieLoading(false);
+  }
 
   return (
     <div className={Style.main_container}>
